@@ -6,10 +6,7 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
 
-import java.util.Collection;
 import java.util.Date;
 
 @Data
@@ -43,8 +40,4 @@ public class UserDTO {
 
     @NotNull
     private String phone;
-
-//    @OneToMany                                                                 //DUVIDA
-//    @JoinColumn(name = "adress_id", referencedColumnName = "id");
-//    private List<Address> addresses;
 }

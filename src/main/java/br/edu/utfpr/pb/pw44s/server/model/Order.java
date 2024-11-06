@@ -21,11 +21,11 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne                                                      //DUVIDA
+    @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
-    @ManyToOne                                                      //DUVIDA
+    @ManyToOne
     @JoinColumn(name = "address_id", referencedColumnName = "id")
     private Address address;
 
