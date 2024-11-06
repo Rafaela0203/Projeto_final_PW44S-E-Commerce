@@ -43,8 +43,4 @@ public class UserDTO {
 
     @NotNull
     private String phone;
-
-//    @OneToMany                                                                 //DUVIDA
-//    @JoinColumn(name = "adress_id", referencedColumnName = "id");
-//    private List<Address> addresses;
 }

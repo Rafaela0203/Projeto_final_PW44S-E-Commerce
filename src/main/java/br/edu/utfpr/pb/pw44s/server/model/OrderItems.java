@@ -15,19 +15,10 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderItems {
-    @Id                                                         //DUVIDA
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
+    @EmbeddedId
+    private OrderItemsId orderItemsId;
 
     private BigDecimal price;
-
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
 
     private int quantity;
 }
