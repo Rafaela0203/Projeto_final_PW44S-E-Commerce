@@ -1,8 +1,7 @@
 package br.edu.utfpr.pb.pw44s.server.dto;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import br.edu.utfpr.pb.pw44s.server.model.User;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,4 +22,8 @@ public class AddressDTO {
     private String City;
     private String State;
     private String Country;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
 }

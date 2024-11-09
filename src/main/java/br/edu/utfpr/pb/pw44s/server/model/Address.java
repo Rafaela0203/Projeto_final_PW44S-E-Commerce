@@ -25,4 +25,8 @@ public class Address {
     private String City;
     private String State;
     private String Country;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
 }

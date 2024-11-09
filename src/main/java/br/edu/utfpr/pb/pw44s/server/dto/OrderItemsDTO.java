@@ -1,6 +1,7 @@
 package br.edu.utfpr.pb.pw44s.server.dto;
 
 import br.edu.utfpr.pb.pw44s.server.model.Order;
+import br.edu.utfpr.pb.pw44s.server.model.OrderItemsId;
 import br.edu.utfpr.pb.pw44s.server.model.Product;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -13,19 +14,10 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderItemsDTO {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
+    @EmbeddedId
+    private OrderItemsId orderItemsId;
 
     private BigDecimal price;
-
-    @ManyToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
 
     private int quantity;
 }
