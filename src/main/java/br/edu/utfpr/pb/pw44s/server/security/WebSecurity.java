@@ -55,8 +55,11 @@ public class WebSecurity {
 
         http.authorizeHttpRequests(authorize ->
                 authorize
-                        .requestMatchers(antMatcher("/h2-console/**")).permitAll()
+                        .requestMatchers(antMatcher("/delux/**")).permitAll()
                         .requestMatchers(antMatcher(HttpMethod.POST, "/users/**")).permitAll()
+                        .requestMatchers(antMatcher(HttpMethod.POST, "/categories/**")).permitAll()
+                        .requestMatchers(antMatcher(HttpMethod.GET, "/users/**")).permitAll()
+                        .requestMatchers(antMatcher(HttpMethod.GET, "/categories/**")).permitAll()
                         .requestMatchers(antMatcher("/error/**")).permitAll()
 
                         .anyRequest().authenticated());

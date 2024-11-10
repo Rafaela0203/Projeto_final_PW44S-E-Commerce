@@ -24,6 +24,7 @@ public class Product {
     private String details;
     private int quantity;
     private String ingredients;
+    private String image;
 
     @ManyToOne
     @JoinColumn(name = "category_id", referencedColumnName = "id")

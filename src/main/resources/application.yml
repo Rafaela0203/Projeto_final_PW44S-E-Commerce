@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: delux
+  datasource:
+    generate-unique-name: false
+  h2:
+    console:
+      enabled: true
+      path: /delux

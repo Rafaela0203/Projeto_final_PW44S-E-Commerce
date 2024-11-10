@@ -5,7 +5,11 @@ import br.edu.utfpr.pb.pw44s.server.model.Address;
 import br.edu.utfpr.pb.pw44s.server.service.IAddressService;
 import br.edu.utfpr.pb.pw44s.server.service.ICrudService;
 import org.modelmapper.ModelMapper;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
+@RequestMapping("adresses")
 public class AddressController extends CrudController<Address, AddressDTO, Long> {
     private static IAddressService addressService;
     private static ModelMapper modelMapper;

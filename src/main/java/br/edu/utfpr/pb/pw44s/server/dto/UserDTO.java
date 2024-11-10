@@ -1,5 +1,6 @@
 package br.edu.utfpr.pb.pw44s.server.dto;
 
+import jakarta.persistence.UniqueConstraint;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
@@ -16,6 +17,7 @@ public class UserDTO {
     private Long id;
 
     @NotNull(message = "O atributo usuário não pode ser nulo.")
+    //@UniqueConstraint()
     @Size(min = 4, max = 50)
     private String email;
 

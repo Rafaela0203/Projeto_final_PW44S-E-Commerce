@@ -5,7 +5,11 @@ import br.edu.utfpr.pb.pw44s.server.model.Order;
 import br.edu.utfpr.pb.pw44s.server.service.ICrudService;
 import br.edu.utfpr.pb.pw44s.server.service.IOrderService;
 import org.modelmapper.ModelMapper;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
+@RequestMapping("orders")
 public class OrderController extends CrudController<Order, OrderDTO, Long> {
     private static IOrderService orderService;
     private static ModelMapper modelMapper;
