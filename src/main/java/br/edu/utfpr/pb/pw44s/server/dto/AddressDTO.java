@@ -2,6 +2,8 @@ package br.edu.utfpr.pb.pw44s.server.dto;
 
 import br.edu.utfpr.pb.pw44s.server.model.User;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,18 +12,36 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AddressDTO {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String Zip;
-    private String Street;
-    private int Number;
-    private String Complement;
-    private String Neighborhood;
-    private String City;
-    private String State;
-    private String Country;
+    @NotNull( message = "O CEP é obrigatório.")
+    private String zip;
+
+    @NotNull(message = "A rua é obrigatória.")
+    @Size(max = 100)
+    private String street;
+
+    @NotNull(message = "O número é obrigatório.")
+    private Integer number;
+
+    @Size(max = 50)
+    private String complement;
+
+    @NotNull(message = "O bairro é obrigatório.")
+    @Size(max = 100)
+    private String neighborhood;
+
+    @NotNull(message = "A cidade é obrigatória.")
+    @Size(max = 100)
+    private String city;
+
+    @NotNull
+    @Size(max = 2)
+    private String state;
+
+    @NotNull(message = "O país é obrigatório.")
+    @Size(max = 100)
+    private String country;
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")

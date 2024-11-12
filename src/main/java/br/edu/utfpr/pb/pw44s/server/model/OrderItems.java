@@ -1,6 +1,7 @@
 package br.edu.utfpr.pb.pw44s.server.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,7 +19,9 @@ public class OrderItems {
     @EmbeddedId
     private OrderItemsId orderItemsId;
 
+    @NotNull
     private BigDecimal price;
 
+    @NotNull
     private int quantity;
 }

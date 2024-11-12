@@ -1,6 +1,9 @@
 package br.edu.utfpr.pb.pw44s.server.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,13 +20,34 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotNull
+    @Size(max = 30)
     private String name;
+
+    @NotNull
     private String brand;
+
+    @NotNull
+    @Size(max = 80)
     private String description;
+
+    @NotNull
     private BigDecimal price;
+
+    @NotNull
+    @Size(min = 100)
     private String details;
+
+    @NotNull
     private int quantity;
+
+    @NotNull
     private String ingredients;
+
+    @NotNull
+    @Pattern(regexp = "^(https?|ftp)://.*$", message = "A URL da imagem deve ser válida.")
+    @Column(length = 512)
     private String image;
 
     @ManyToOne

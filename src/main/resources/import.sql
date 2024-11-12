@@ -10,6 +10,6 @@
 -- INSERT INTO tb_product (name, brand, description, price, details, quantity, ingredients, category_id) VALUES('Jadore', 'Dior', 'Fragrância floral frutada com notas de ylang-ylang e rosa damascena.', 870.00, 'Eau de Parfum, 100ml', 18, 'Álcool, Água, Fragrância, Benzyl Salicylate, Hydroxycitronellal', 1);
 -- INSERT INTO tb_product (name, brand, description, price, details, quantity, ingredients, category_id) VALUES('Black Opium', 'Yves Saint Laurent', 'Perfume oriental gourmand com notas de café e baunilha.', 820.00, 'Eau de Parfum, 90ml', 22, 'Álcool, Água, Fragrância, Coumarin, Limonene', 1);
 --
---
+-- --
 -- INSERT INTO tb_user(display_name, username, password) VALUES ('Administrador', 'admin','$2a$10$.PVIfB07x.SfMYTcToxL0.yxcLWU0GbS2NUO1W1QAvqMm/TsFhVem');
 -- INSERT INTO tb_user(display_name, username, password) VALUES ('Teste', 'test','$2a$10$.PVIfB07x.SfMYTcToxL0.yxcLWU0GbS2NUO1W1QAvqMm/TsFhVem');

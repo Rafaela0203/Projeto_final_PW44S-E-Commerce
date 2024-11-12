@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("adresses")
+@RequestMapping("addresses")
 public class AddressController extends CrudController<Address, AddressDTO, Long> {
     private static IAddressService addressService;
     private static ModelMapper modelMapper;
