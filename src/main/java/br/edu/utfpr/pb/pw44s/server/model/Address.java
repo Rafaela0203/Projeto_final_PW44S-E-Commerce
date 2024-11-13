@@ -19,14 +19,34 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String Zip;
-    private String Street;
-    private int Number;
-    private String Complement;
-    private String Neighborhood;
-    private String City;
-    private String State;
-    private String Country;
+    @NotNull( message = "O CEP é obrigatório.")
+    private String zip;
+
+    @NotNull(message = "A rua é obrigatória.")
+    @Size(max = 100)
+    private String street;
+
+    @NotNull(message = "O número é obrigatório.")
+    private Integer number;
+
+    @Size(max = 50)
+    private String complement;
+
+    @NotNull(message = "O bairro é obrigatório.")
+    @Size(max = 100)
+    private String neighborhood;
+
+    @NotNull(message = "A cidade é obrigatória.")
+    @Size(max = 100)
+    private String city;
+
+    @NotNull
+    @Size(max = 2)
+    private String state;
+
+    @NotNull(message = "O país é obrigatório.")
+    @Size(max = 100)
+    private String country;
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")

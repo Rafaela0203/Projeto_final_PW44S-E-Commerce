@@ -3,6 +3,7 @@ package br.edu.utfpr.pb.pw44s.server.dto;
 import br.edu.utfpr.pb.pw44s.server.model.Address;
 import br.edu.utfpr.pb.pw44s.server.model.User;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,5 +26,12 @@ public class OrderDTO {
         @JoinColumn(name = "address_id", referencedColumnName = "id")
         private Address address;
 
+        @NotNull
         private Date orderDate;
+
+        @NotNull
+        private String payment;
+
+        @NotNull
+        private String shipping;
 }

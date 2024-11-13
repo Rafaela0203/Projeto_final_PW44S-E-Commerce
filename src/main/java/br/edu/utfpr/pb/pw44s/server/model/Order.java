@@ -1,6 +1,7 @@
 package br.edu.utfpr.pb.pw44s.server.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,6 +30,12 @@ public class Order {
     @JoinColumn(name = "address_id", referencedColumnName = "id")
     private Address address;
 
+    @NotNull
     private Date orderDate;
 
+    @NotNull
+    private String payment;
+
+    @NotNull
+    private String shipping;
 }
