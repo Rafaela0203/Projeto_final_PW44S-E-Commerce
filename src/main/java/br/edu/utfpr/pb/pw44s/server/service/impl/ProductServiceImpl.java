@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProductServiceImpl extends CrudServiceImpl<Product, Long> implements IProductService {
+public class ProductServiceImpl extends ReadServiceImpl<Product, Long> implements IProductService {
 
     private ProductRepository productRepository;
 
@@ -19,4 +19,5 @@ public class ProductServiceImpl extends CrudServiceImpl<Product, Long> implement
     protected JpaRepository<Product, Long> getRepository() {
         return productRepository;
     }
+
 }

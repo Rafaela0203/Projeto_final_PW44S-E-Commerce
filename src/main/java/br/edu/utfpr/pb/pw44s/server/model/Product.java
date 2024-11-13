@@ -29,14 +29,13 @@ public class Product {
     private String brand;
 
     @NotNull
-    @Size(max = 80)
     private String description;
 
     @NotNull
     private BigDecimal price;
 
     @NotNull
-    @Size(min = 100)
+    @Column(length = 512)
     private String details;
 
     @NotNull

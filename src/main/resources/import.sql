@@ -1,15 +1,16 @@
--- insert into tb_category (name) values ('Informática');
--- insert into tb_category (name) values ('UD');
--- insert into tb_category (name) values ('Cozinha');
--- insert into tb_category (name) values ('Móveis');
--- insert into tb_category (name) values ('Eletrônico');
---
--- INSERT INTO tb_product (name, brand, description, price, details, quantity, ingredients, category_id) VALUES('Chanel No. 5', 'Chanel', 'Perfume floral icônico com notas de jasmim e rosa.', 950.00, 'Eau de Parfum, 100ml', 20, 'Álcool, Água, Fragrância, Geraniol, Limoneno', 1);
--- INSERT INTO tb_product (name, brand, description, price, details, quantity, ingredients, category_id) VALUES('La Vie Est Belle', 'Lancôme', 'Fragrância gourmand com notas de íris, jasmim e flor de laranjeira.', 750.00, 'Eau de Parfum, 75ml', 15, 'Álcool, Água, Fragrância, Benzil Benzoato, Linalol', 1);
--- INSERT INTO tb_product (name, brand, description, price, details, quantity, ingredients, category_id) VALUES('Good Girl', 'Carolina Herrera', 'Perfume oriental floral com notas de tuberosa e jasmim árabe.', 680.00, 'Eau de Parfum, 80ml', 25, 'Álcool, Água, Fragrância, Cinnamyl Alcohol, Geraniol', 1);
--- INSERT INTO tb_product (name, brand, description, price, details, quantity, ingredients, category_id) VALUES('Jadore', 'Dior', 'Fragrância floral frutada com notas de ylang-ylang e rosa damascena.', 870.00, 'Eau de Parfum, 100ml', 18, 'Álcool, Água, Fragrância, Benzyl Salicylate, Hydroxycitronellal', 1);
--- INSERT INTO tb_product (name, brand, description, price, details, quantity, ingredients, category_id) VALUES('Black Opium', 'Yves Saint Laurent', 'Perfume oriental gourmand com notas de café e baunilha.', 820.00, 'Eau de Parfum, 90ml', 22, 'Álcool, Água, Fragrância, Coumarin, Limonene', 1);
---
+insert into tb_category (name) values ('Floral');
+insert into tb_category (name) values ('Frutado');
+insert into tb_category (name) values ('Amadeirado');
+insert into tb_category (name) values ('Cítrico');
+insert into tb_category (name) values ('Atalcado');
+
+INSERT INTO tb_product (price, quantity, category_id, name, description, image, brand, details, ingredients) VALUES (299.90, 20, 5, 'Eau de Parfum Floral', 'Notas de rosa e jasmim', 'https://exemplo.com/imagens/perfume_floral.jpg', 'MarcaA', 'Perfume feminino com fragrância floral e leve', 'Álcool, Água, Fragrância, Extrato de rosa');
+INSERT INTO tb_product (price, quantity, category_id, name, description, image, brand, details, ingredients) VALUES (450.00, 15, 5, 'Eau de Parfum Oriental', 'Notas de âmbar e baunilha', 'https://exemplo.com/imagens/perfume_oriental.jpg', 'MarcaB', 'Perfume com toque oriental intenso e marcante', 'Álcool, Água, Fragrância, Óleo de âmbar');
+INSERT INTO tb_product (price, quantity, category_id, name, description, image, brand, details, ingredients) VALUES (399.99, 10, 5, 'Eau de Parfum Cítrico', 'Notas de limão e laranja', 'https://exemplo.com/imagens/perfume_citrico.jpg', 'MarcaC', 'Perfume feminino cítrico e refrescante', 'Álcool, Água, Fragrância, Óleo essencial de laranja');
+INSERT INTO tb_product (price, quantity, category_id, name, description, image, brand, details, ingredients) VALUES (279.90, 30, 5, 'Eau de Toilette Frutado', 'Notas de pêssego e frutas vermelhas', 'https://exemplo.com/imagens/perfume_frutado.jpg', 'MarcaD', 'Perfume com toque frutado e alegre', 'Álcool, Água, Fragrância, Extrato de frutas vermelhas');
+INSERT INTO tb_product (price, quantity, category_id, name, description, image, brand, details, ingredients) VALUES (349.50, 25, 5, 'Eau de Toilette Floral', 'Notas de sândalo e lírio', 'https://exemplo.com/imagens/perfume_amadeirado.jpg', 'MarcaE', 'Perfume feminino com uma mistura floral e amadeirada', 'Álcool, Água, Fragrância, Óleo de sândalo');
+INSERT INTO tb_product (price, quantity, category_id, name, description, image, brand, details, ingredients) VALUES (499.00, 5, 5, 'Eau de Parfum Gourmet', 'Notas de baunilha e caramelo', 'https://exemplo.com/imagens/perfume_gourmet.jpg', 'MarcaF', 'Perfume doce e envolvente, com notas gourmets', 'Álcool, Água, Fragrância, Extrato de baunilha');
+
 -- --
 -- INSERT INTO tb_user(display_name, username, password) VALUES ('Administrador', 'admin','$2a$10$.PVIfB07x.SfMYTcToxL0.yxcLWU0GbS2NUO1W1QAvqMm/TsFhVem');
 -- INSERT INTO tb_user(display_name, username, password) VALUES ('Teste', 'test','$2a$10$.PVIfB07x.SfMYTcToxL0.yxcLWU0GbS2NUO1W1QAvqMm/TsFhVem');

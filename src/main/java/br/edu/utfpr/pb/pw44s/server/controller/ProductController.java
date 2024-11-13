@@ -4,13 +4,14 @@ import br.edu.utfpr.pb.pw44s.server.dto.ProductDTO;
 import br.edu.utfpr.pb.pw44s.server.model.Product;
 import br.edu.utfpr.pb.pw44s.server.service.ICrudService;
 import br.edu.utfpr.pb.pw44s.server.service.IProductService;
+import br.edu.utfpr.pb.pw44s.server.service.IReadService;
 import org.modelmapper.ModelMapper;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("products")
-public class ProductController extends CrudController<Product, ProductDTO, Long> {
+public class ProductController extends ReadController<Product, ProductDTO, Long> {
     private static IProductService productService;
     private static ModelMapper modelMapper;
 
@@ -21,8 +22,8 @@ public class ProductController extends CrudController<Product, ProductDTO, Long>
     }
 
     @Override
-    protected ICrudService<Product, Long> getService() {
-        return productService;
+    protected IReadService<Product, Long> getService() {
+        return ProductController.productService;
     }
 
     @Override
