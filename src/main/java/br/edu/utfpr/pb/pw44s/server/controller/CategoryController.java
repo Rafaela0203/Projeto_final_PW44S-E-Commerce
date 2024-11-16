@@ -4,13 +4,14 @@ import br.edu.utfpr.pb.pw44s.server.dto.CategoryDTO;
 import br.edu.utfpr.pb.pw44s.server.model.Category;
 import br.edu.utfpr.pb.pw44s.server.service.ICategoryService;
 import br.edu.utfpr.pb.pw44s.server.service.ICrudService;
+import br.edu.utfpr.pb.pw44s.server.service.IReadService;
 import org.modelmapper.ModelMapper;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("categories")
-public class CategoryController extends CrudController<Category, CategoryDTO, Long> {
+public class CategoryController extends ReadController<Category, CategoryDTO, Long> {
     private static ICategoryService categoryService;
     private static ModelMapper modelMapper;
 
@@ -22,7 +23,7 @@ public class CategoryController extends CrudController<Category, CategoryDTO, Lo
     }
 
     @Override
-    protected ICrudService<Category, Long> getService() {
+    protected IReadService<Category, Long> getService() {
         return CategoryController.categoryService;
     }
 

@@ -5,6 +5,7 @@ import br.edu.utfpr.pb.pw44s.server.model.Order;
 import br.edu.utfpr.pb.pw44s.server.service.ICrudService;
 import br.edu.utfpr.pb.pw44s.server.service.IOrderService;
 import org.modelmapper.ModelMapper;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,4 +26,9 @@ public class OrderController extends CrudController<Order, OrderDTO, Long> {
 
     @Override
     protected ModelMapper getModelMapper() {return OrderController.modelMapper;}
+
+    @Override
+    public ResponseEntity<OrderDTO> create(OrderDTO entity) {
+        return ResponseEntity.ok(orderService.SaveCompleteOrder(entity));
+    }
 }

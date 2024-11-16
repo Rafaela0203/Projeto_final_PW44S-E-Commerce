@@ -61,7 +61,7 @@ public class WebSecurity {
                         .requestMatchers(antMatcher(HttpMethod.GET, "/addresses/**")).permitAll()
                         .requestMatchers(antMatcher(HttpMethod.DELETE, "/addresses/**")).permitAll()
 
-                        .requestMatchers(antMatcher(HttpMethod.POST, "/categories/**")).permitAll()
+                        //.requestMatchers(antMatcher(HttpMethod.POST, "/categories/**")).permitAll()
                         .requestMatchers(antMatcher(HttpMethod.GET, "/categories/**")).permitAll()
                         .requestMatchers(antMatcher(HttpMethod.DELETE, "/categories/**")).permitAll()
 
@@ -73,7 +73,7 @@ public class WebSecurity {
                         .requestMatchers(antMatcher(HttpMethod.GET, "/orderItems/**")).permitAll()
                         .requestMatchers(antMatcher(HttpMethod.DELETE, "/orderItems/**")).permitAll()
 
-                        .requestMatchers(antMatcher(HttpMethod.POST, "/products/**")).permitAll()
+                        //.requestMatchers(antMatcher(HttpMethod.POST, "/products/**")).permitAll()
                         .requestMatchers(antMatcher(HttpMethod.GET, "/products/**")).permitAll()
                         .requestMatchers(antMatcher(HttpMethod.DELETE, "/products/**")).permitAll()
 

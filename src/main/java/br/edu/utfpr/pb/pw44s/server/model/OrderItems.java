@@ -16,8 +16,19 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderItems {
-    @EmbeddedId
-    private OrderItemsId orderItemsId;
+//    @EmbeddedId
+////    private OrderItemsId orderItemsId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "order_id", referencedColumnName = "id")
+    private Order orderId;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id", referencedColumnName = "id")
+    private Product productId;
 
     @NotNull
     private BigDecimal price;

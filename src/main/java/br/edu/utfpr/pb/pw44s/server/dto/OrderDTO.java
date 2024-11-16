@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -18,11 +19,11 @@ public class OrderDTO {
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
 
-        @ManyToOne                                                      //DUVIDA
+        @ManyToOne
         @JoinColumn(name = "user_id", referencedColumnName = "id")
         private User user;
 
-        @ManyToOne                                                      //DUVIDA
+        @ManyToOne
         @JoinColumn(name = "address_id", referencedColumnName = "id")
         private Address address;
 
@@ -34,4 +35,6 @@ public class OrderDTO {
 
         @NotNull
         private String shipping;
+
+        List<OrderItemsDTO> ItemsList;
 }

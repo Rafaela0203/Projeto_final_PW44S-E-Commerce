@@ -9,6 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Date;
 
@@ -38,11 +39,11 @@ public class User implements UserDetails {
     private String password;
 
     @NotNull
-    @Size(max = 14)                                                                 //DUVIDA
+    @Size(max = 11)                                                                 //DUVIDA
     private String cpf;
 
     @NotNull
-    private Date birthDate;
+    private LocalDate birthDate;
 
     @NotNull
     private String gender;

@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -31,7 +32,7 @@ public class Order {
     private Address address;
 
     @NotNull
-    private Date orderDate;
+    private LocalDateTime orderDate;
 
     @NotNull
     private String payment;
