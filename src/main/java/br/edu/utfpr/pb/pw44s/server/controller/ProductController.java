@@ -2,7 +2,6 @@ package br.edu.utfpr.pb.pw44s.server.controller;
 
 import br.edu.utfpr.pb.pw44s.server.dto.ProductDTO;
 import br.edu.utfpr.pb.pw44s.server.model.Product;
-import br.edu.utfpr.pb.pw44s.server.service.ICrudService;
 import br.edu.utfpr.pb.pw44s.server.service.IProductService;
 import br.edu.utfpr.pb.pw44s.server.service.IReadService;
 import org.modelmapper.ModelMapper;

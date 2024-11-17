@@ -6,7 +6,6 @@ import br.edu.utfpr.pb.pw44s.server.service.IOrderItemsService;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
-
 @Service
 public class OrderItemsServiceImpl extends CrudServiceImpl<OrderItems, Long> implements IOrderItemsService {
     private OrderItemsRepository orderItemsRepository;

@@ -6,22 +6,26 @@ import br.edu.utfpr.pb.pw44s.server.model.Order;
 import br.edu.utfpr.pb.pw44s.server.model.OrderItems;
 import br.edu.utfpr.pb.pw44s.server.repository.OrderItemsRepository;
 import br.edu.utfpr.pb.pw44s.server.repository.OrderRepository;
+import br.edu.utfpr.pb.pw44s.server.service.AuthService;
 import br.edu.utfpr.pb.pw44s.server.service.IOrderService;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.Date;
-
+import java.util.List;
 
 @Service
 public class OrderServiceImpl extends CrudServiceImpl<Order, Long> implements IOrderService {
     private OrderRepository orderRepository;
     private OrderItemsRepository orderItemsRepository;
+    private AuthService authService;
 
-    public OrderServiceImpl(OrderRepository orderRepository) {
+    public OrderServiceImpl(OrderRepository orderRepository, OrderItemsRepository orderItemsRepository, AuthService authService) {
         this.orderRepository = orderRepository;
+        this.orderItemsRepository = orderItemsRepository;
+        this.authService = authService;
     }
+
 
     @Override
     protected JpaRepository<Order, Long> getRepository() {
@@ -31,7 +35,7 @@ public class OrderServiceImpl extends CrudServiceImpl<Order, Long> implements IO
     public OrderDTO SaveCompleteOrder(OrderDTO entity) {
         Order order = new Order();
         order.setOrderDate(LocalDateTime.now());
-        order.setUser(entity.getUser());//ubstituir metodo
+        order.setUser(authService.getAuthenticatedUser());
         order.setAddress(entity.getAddress());
         order.setPayment(entity.getPayment());
         order.setShipping(entity.getShipping());
@@ -49,5 +53,9 @@ public class OrderServiceImpl extends CrudServiceImpl<Order, Long> implements IO
 
         entity.setId(order.getId());
         return entity;
+    }
+
+    public List<Order> findByUserId(Long userId) {
+        return orderRepository.findByUserId(userId);
     }
 }

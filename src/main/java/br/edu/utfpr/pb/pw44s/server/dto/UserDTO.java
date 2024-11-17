@@ -1,6 +1,5 @@
 package br.edu.utfpr.pb.pw44s.server.dto;
 
-import jakarta.persistence.UniqueConstraint;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
@@ -8,7 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
@@ -34,8 +33,7 @@ public class UserDTO {
     @Size(max = 14)                                                                 //DUVIDA
     private String cpf;
 
-    @NotNull
-    private Date birthDate;
+    private LocalDate birthDate;
 
     @NotNull
     private String gender;

@@ -1,6 +1,5 @@
 package br.edu.utfpr.pb.pw44s.server.security;
 
-
 import br.edu.utfpr.pb.pw44s.server.service.AuthService;
 import lombok.SneakyThrows;
 import org.springframework.context.annotation.Bean;

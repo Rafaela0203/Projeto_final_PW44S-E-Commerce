@@ -11,7 +11,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDate;
 import java.util.Collection;
-import java.util.Date;
 
 @Entity
 @Table(name = "tb_user")
@@ -42,7 +41,6 @@ public class User implements UserDetails {
     @Size(max = 11)                                                                 //DUVIDA
     private String cpf;
 
-    @NotNull
     private LocalDate birthDate;
 
     @NotNull

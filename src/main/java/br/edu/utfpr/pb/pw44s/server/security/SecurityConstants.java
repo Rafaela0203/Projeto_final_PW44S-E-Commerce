@@ -1,7 +1,5 @@
 package br.edu.utfpr.pb.pw44s.server.security;
 
-
-
 public class SecurityConstants {
     public static final String SECRET = "utfpr";
     public static final String TOKEN_PREFIX = "Bearer ";

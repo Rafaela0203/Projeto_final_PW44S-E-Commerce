@@ -5,8 +5,13 @@ import br.edu.utfpr.pb.pw44s.server.model.Address;
 import br.edu.utfpr.pb.pw44s.server.service.IAddressService;
 import br.edu.utfpr.pb.pw44s.server.service.ICrudService;
 import org.modelmapper.ModelMapper;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("addresses")
@@ -25,4 +30,13 @@ public class AddressController extends CrudController<Address, AddressDTO, Long>
 
     @Override
     protected ModelMapper getModelMapper(){return AddressController.modelMapper;}
+
+    @GetMapping("/by-user")
+    public ResponseEntity<List<Address>> getAddressesByUserId(@RequestParam Long userId) {
+        List<Address> addresses = addressService.findByUserId(userId);
+        if (addresses == null || addresses.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(addresses);
+    }
 }

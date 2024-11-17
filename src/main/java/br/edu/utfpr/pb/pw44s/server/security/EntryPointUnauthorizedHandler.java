@@ -1,6 +1,5 @@
 package br.edu.utfpr.pb.pw44s.server.security;
 
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

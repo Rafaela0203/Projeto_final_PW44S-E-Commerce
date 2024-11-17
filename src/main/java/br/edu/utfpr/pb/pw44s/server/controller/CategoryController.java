@@ -3,7 +3,6 @@ package br.edu.utfpr.pb.pw44s.server.controller;
 import br.edu.utfpr.pb.pw44s.server.dto.CategoryDTO;
 import br.edu.utfpr.pb.pw44s.server.model.Category;
 import br.edu.utfpr.pb.pw44s.server.service.ICategoryService;
-import br.edu.utfpr.pb.pw44s.server.service.ICrudService;
 import br.edu.utfpr.pb.pw44s.server.service.IReadService;
 import org.modelmapper.ModelMapper;
 import org.springframework.web.bind.annotation.RequestMapping;
