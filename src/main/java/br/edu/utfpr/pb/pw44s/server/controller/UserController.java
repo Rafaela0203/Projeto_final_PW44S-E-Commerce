@@ -31,21 +31,4 @@ public class UserController extends CrudController<User, UserDTO, ResponseUserDT
     protected ModelMapper getModelMapper() {
         return UserController.modelMapper;
     }
-
-
-//    @PostMapping
-//    public String saveTeste(PedidoDTO pedidoDTO) {
-//        Pedido p = new Pedido();
-//
-//        p.setData(new Date())
-//                List itensPedido = new ArrayList
-//        pedidoDTO.list.foreach(il -> {
-//                ItemPedido ip = new ItemPedido
-//            ip.setQtde(il.getQtde)
-//                    ip.setPedido(p)
-//                            itensPedido.add(ip)
-//        })
-//
-//
-//    }
 }

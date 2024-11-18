@@ -5,8 +5,12 @@ import br.edu.utfpr.pb.pw44s.server.model.Product;
 import br.edu.utfpr.pb.pw44s.server.service.IProductService;
 import br.edu.utfpr.pb.pw44s.server.service.IReadService;
 import org.modelmapper.ModelMapper;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("products")
@@ -29,4 +33,10 @@ public class ProductController extends ReadController<Product, ProductDTO, Long>
     protected ModelMapper getModelMapper() {
         return modelMapper;
     }
+
+    @GetMapping("/category/{categoryId}")
+    public List<Product> getProductsByCategory(@PathVariable Long categoryId) {
+        return productService.findByCategoryId(categoryId);
+    }
+
 }

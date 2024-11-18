@@ -2,6 +2,7 @@ package br.edu.utfpr.pb.pw44s.server.service;
 
 import br.edu.utfpr.pb.pw44s.server.model.Category;
 
-public interface ICategoryService extends IReadService<Category, Long> {
+import java.util.List;
 
+public interface ICategoryService extends IReadService<Category, Long> {
 }

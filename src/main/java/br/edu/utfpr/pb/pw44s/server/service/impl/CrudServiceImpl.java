@@ -1,5 +1,8 @@
 package br.edu.utfpr.pb.pw44s.server.service.impl;
 
+import br.edu.utfpr.pb.pw44s.server.model.Address;
+import br.edu.utfpr.pb.pw44s.server.model.User;
+import br.edu.utfpr.pb.pw44s.server.service.AuthService;
 import br.edu.utfpr.pb.pw44s.server.service.ICrudService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -14,6 +17,7 @@ public abstract class CrudServiceImpl<T, ID extends Serializable>
         implements ICrudService<T, ID> {
 
     protected abstract JpaRepository<T, ID> getRepository();
+    private AuthService authService;
 
     @Override
     public List<T> findAll() {

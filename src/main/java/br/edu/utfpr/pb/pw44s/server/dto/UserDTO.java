@@ -16,7 +16,6 @@ public class UserDTO {
     private Long id;
 
     @NotNull(message = "O atributo usuário não pode ser nulo.")
-    //@UniqueConstraint()
     @Size(min = 4, max = 50)
     private String email;
 
