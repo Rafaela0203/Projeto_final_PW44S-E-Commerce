@@ -2,8 +2,6 @@ package br.edu.utfpr.pb.pw44s.server.service.impl;
 
 import br.edu.utfpr.pb.pw44s.server.dto.OrderDTO;
 import br.edu.utfpr.pb.pw44s.server.dto.OrderItemsDTO;
-import br.edu.utfpr.pb.pw44s.server.dto.response.ResponseOrderDTO;
-import br.edu.utfpr.pb.pw44s.server.dto.response.ResponseOrderItemsDTO;
 import br.edu.utfpr.pb.pw44s.server.model.Order;
 import br.edu.utfpr.pb.pw44s.server.model.OrderItems;
 import br.edu.utfpr.pb.pw44s.server.model.Product;
@@ -15,16 +13,12 @@ import br.edu.utfpr.pb.pw44s.server.service.AuthService;
 import br.edu.utfpr.pb.pw44s.server.service.IOrderService;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 @Service
@@ -33,13 +27,15 @@ public class OrderServiceImpl extends CrudServiceImpl<Order, Long> implements IO
     private final OrderRepository orderRepository;
     private final OrderItemsRepository orderItemsRepository;
     private final AuthService authService;
-    private final ProductRepository productRepository;
+    private final ProductServiceImpl productService;
     private final ModelMapper modelMapper;
 
-    public OrderServiceImpl(OrderRepository orderRepository, OrderItemsRepository orderItemsRepository, OrderItemsRepository orderItemRepository, AuthService authService, ProductRepository productRepository, ModelMapper modelMapper) {
+    public OrderServiceImpl(OrderRepository orderRepository, OrderItemsRepository orderItemsRepository,
+                            OrderItemsRepository orderItemRepository, AuthService authService,
+                            ProductServiceImpl productService, ModelMapper modelMapper) {
         this.orderRepository = orderRepository;
         this.orderItemsRepository = orderItemRepository;
-        this.productRepository = productRepository;
+        this.productService = productService;
         this.modelMapper = modelMapper;
         this.authService = authService;
     }
@@ -62,10 +58,12 @@ public class OrderServiceImpl extends CrudServiceImpl<Order, Long> implements IO
 
         for(OrderItemsDTO dtoItem : entity.getItemsList()) {
             OrderItems item = new OrderItems();
+            Product product = productService.findOne(dtoItem.getProductId().getId());
             item.setOrderId(order);
             item.setQuantity(dtoItem.getQuantity());
             item.setProductId(dtoItem.getProductId());
-            item.setPrice(dtoItem.getProductId().getPrice());
+            item.setPrice(product.getPrice());
+
             orderItemsRepository.save(item);
         }
 
