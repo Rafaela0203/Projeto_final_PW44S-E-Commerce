@@ -1,7 +1,6 @@
 package br.edu.utfpr.pb.pw44s.server.dto;
 
 import br.edu.utfpr.pb.pw44s.server.model.Order;
-import br.edu.utfpr.pb.pw44s.server.model.OrderItemsId;
 import br.edu.utfpr.pb.pw44s.server.model.Product;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -15,8 +14,6 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderItemsDTO {
-//    @EmbeddedId
-//    private OrderItemsId orderItemsId;
     private Long id;
 
     @ManyToOne

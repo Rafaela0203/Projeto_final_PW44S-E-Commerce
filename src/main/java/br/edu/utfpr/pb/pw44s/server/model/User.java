@@ -24,7 +24,7 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull(message = "O atributo usuário não pode ser nulo.")
+    @NotNull
     @Size(min = 4, max = 50)
     @Column(nullable = false, unique = true)
     private String email;

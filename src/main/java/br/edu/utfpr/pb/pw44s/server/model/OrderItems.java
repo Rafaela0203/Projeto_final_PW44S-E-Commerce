@@ -16,8 +16,6 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderItems {
-//    @EmbeddedId
-////    private OrderItemsId orderItemsId;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

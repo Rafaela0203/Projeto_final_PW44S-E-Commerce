@@ -14,24 +14,24 @@ import lombok.NoArgsConstructor;
 public class AddressDTO {
     private Long id;
 
-    @NotNull( message = "O CEP é obrigatório.")
+    @NotNull
     private String zip;
 
-    @NotNull(message = "A rua é obrigatória.")
+    @NotNull
     @Size(max = 100)
     private String street;
 
-    @NotNull(message = "O número é obrigatório.")
+    @NotNull
     private Integer number;
 
     @Size(max = 50)
     private String complement;
 
-    @NotNull(message = "O bairro é obrigatório.")
+    @NotNull
     @Size(max = 100)
     private String neighborhood;
 
-    @NotNull(message = "A cidade é obrigatória.")
+    @NotNull
     @Size(max = 100)
     private String city;
 
@@ -39,7 +39,7 @@ public class AddressDTO {
     @Size(max = 2)
     private String state;
 
-    @NotNull(message = "O país é obrigatório.")
+    @NotNull
     @Size(max = 100)
     private String country;
 

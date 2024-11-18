@@ -3,7 +3,6 @@ package br.edu.utfpr.pb.pw44s.server.service.impl;
 import br.edu.utfpr.pb.pw44s.server.service.IReadService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,11 +19,11 @@ public abstract class ReadServiceImpl<T, ID extends Serializable> implements IRe
         return getRepository().findAll();
     }
 
-    @Transactional(readOnly = true)
-    @Override
-    public List<T> findAll(Sort sort) {
-        return getRepository().findAll(sort);
-    }
+//    @Transactional(readOnly = true)
+//    @Override
+//    public List<T> findAll(Sort sort) {
+//        return getRepository().findAll(sort);
+//    }
 
     @Override
     @Transactional(readOnly = true)

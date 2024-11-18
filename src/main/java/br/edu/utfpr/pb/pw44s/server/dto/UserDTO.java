@@ -15,7 +15,7 @@ import java.time.LocalDate;
 public class UserDTO {
     private Long id;
 
-    @NotNull(message = "O atributo usuário não pode ser nulo.")
+    @NotNull
     @Size(min = 4, max = 50)
     private String email;
 
@@ -29,7 +29,7 @@ public class UserDTO {
     private String password;
 
     @NotNull
-    @Size(max = 14)                                                                 //DUVIDA
+    @Size(max = 14)
     private String cpf;
 
     private LocalDate birthDate;

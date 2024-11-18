@@ -1,12 +1,8 @@
 package br.edu.utfpr.pb.pw44s.server.service.impl;
 
-import br.edu.utfpr.pb.pw44s.server.model.Address;
-import br.edu.utfpr.pb.pw44s.server.model.User;
-import br.edu.utfpr.pb.pw44s.server.service.AuthService;
 import br.edu.utfpr.pb.pw44s.server.service.ICrudService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,16 +13,10 @@ public abstract class CrudServiceImpl<T, ID extends Serializable>
         implements ICrudService<T, ID> {
 
     protected abstract JpaRepository<T, ID> getRepository();
-    private AuthService authService;
 
     @Override
     public List<T> findAll() {
         return getRepository().findAll();
-    }
-
-    @Override
-    public List<T> findAll(Sort sort) {
-        return getRepository().findAll(sort);
     }
 
     @Override
@@ -37,21 +27,6 @@ public abstract class CrudServiceImpl<T, ID extends Serializable>
     @Override
     public T save(T entity) {
         return getRepository().save(entity);
-    }
-
-    @Override
-    public T saveAndFlush(T entity) {
-        return getRepository().saveAndFlush(entity);
-    }
-
-    @Override
-    public Iterable<T> save(Iterable<T> iterable) {
-        return getRepository().saveAll(iterable);
-    }
-
-    @Override
-    public void flush() {
-        getRepository().flush();
     }
 
     @Override
@@ -73,15 +48,5 @@ public abstract class CrudServiceImpl<T, ID extends Serializable>
     @Override
     public void delete(ID id) {
         getRepository().deleteById(id);
-    }
-
-    @Override
-    public void delete(Iterable<? extends T> iterable) {
-        getRepository().deleteAll(iterable);
-    }
-
-    @Override
-    public void deleteAll() {
-        getRepository().deleteAll();
     }
 }
