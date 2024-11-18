@@ -19,5 +19,5 @@ public class ResponseOrderDTO {
 
         private String shipping;
 
-        private List<OrderItemsDTO> ItemsList;
+        private List<ResponseOrderItemsDTO> itemsList;
 }

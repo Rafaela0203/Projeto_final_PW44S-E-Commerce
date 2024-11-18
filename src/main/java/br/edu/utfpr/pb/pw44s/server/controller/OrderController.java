@@ -41,4 +41,12 @@ public class OrderController extends CrudController<Order, OrderDTO, ResponseOrd
 
         return ResponseEntity.ok(responseOrders);
     }
+
+    @Override
+    public ResponseEntity<ResponseOrderDTO> create(OrderDTO entity) {
+        OrderDTO savedOrderDTO = orderService.SaveCompleteOrder(entity);
+        ResponseOrderDTO responseOrderDTO = modelMapper.map(savedOrderDTO, ResponseOrderDTO.class);
+
+        return ResponseEntity.ok(responseOrderDTO);
+    }
 }

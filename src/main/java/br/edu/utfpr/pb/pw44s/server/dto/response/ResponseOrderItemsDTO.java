@@ -8,7 +8,9 @@ import java.math.BigDecimal;
 @Data
 public class ResponseOrderItemsDTO {
 
-    private Product productId; //seria productId ou só product?
+    //private Product product; //seria productId ou só product?
+
+    private String productName;
 
     private BigDecimal price;
 
