@@ -55,30 +55,9 @@ public class WebSecurity {
         http.authorizeHttpRequests(authorize ->
                 authorize
                         .requestMatchers(antMatcher("/delux/**")).permitAll()
-
-                        .requestMatchers(antMatcher(HttpMethod.POST, "/addresses/**")).permitAll()
-                        .requestMatchers(antMatcher(HttpMethod.GET, "/addresses/**")).permitAll()
-                        .requestMatchers(antMatcher(HttpMethod.DELETE, "/addresses/**")).permitAll()
-
-                        //.requestMatchers(antMatcher(HttpMethod.POST, "/categories/**")).permitAll()
                         .requestMatchers(antMatcher(HttpMethod.GET, "/categories/**")).permitAll()
-                        .requestMatchers(antMatcher(HttpMethod.DELETE, "/categories/**")).permitAll()
-
-                        .requestMatchers(antMatcher(HttpMethod.POST, "/orders/**")).permitAll()
-                        .requestMatchers(antMatcher(HttpMethod.GET, "/orders/**")).permitAll()
-                        .requestMatchers(antMatcher(HttpMethod.DELETE, "/orders/**")).permitAll()
-
-                        .requestMatchers(antMatcher(HttpMethod.POST, "/orderItems/**")).permitAll()
-                        .requestMatchers(antMatcher(HttpMethod.GET, "/orderItems/**")).permitAll()
-                        .requestMatchers(antMatcher(HttpMethod.DELETE, "/orderItems/**")).permitAll()
-
-                        //.requestMatchers(antMatcher(HttpMethod.POST, "/products/**")).permitAll()
                         .requestMatchers(antMatcher(HttpMethod.GET, "/products/**")).permitAll()
-                        .requestMatchers(antMatcher(HttpMethod.DELETE, "/products/**")).permitAll()
-
                         .requestMatchers(antMatcher(HttpMethod.POST, "/users/**")).permitAll()
-                        .requestMatchers(antMatcher(HttpMethod.GET, "/users/**")).permitAll()
-                        .requestMatchers(antMatcher(HttpMethod.DELETE, "/users/**")).permitAll()
                         .requestMatchers(antMatcher("/error/**")).permitAll()
 
                         .anyRequest().authenticated());
