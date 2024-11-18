@@ -8,7 +8,6 @@ import br.edu.utfpr.pb.pw44s.server.model.Product;
 import br.edu.utfpr.pb.pw44s.server.model.User;
 import br.edu.utfpr.pb.pw44s.server.repository.OrderItemsRepository;
 import br.edu.utfpr.pb.pw44s.server.repository.OrderRepository;
-import br.edu.utfpr.pb.pw44s.server.repository.ProductRepository;
 import br.edu.utfpr.pb.pw44s.server.service.AuthService;
 import br.edu.utfpr.pb.pw44s.server.service.IOrderService;
 import org.modelmapper.ModelMapper;
@@ -61,7 +60,7 @@ public class OrderServiceImpl extends CrudServiceImpl<Order, Long> implements IO
             Product product = productService.findOne(dtoItem.getProductId().getId());
             item.setOrderId(order);
             item.setQuantity(dtoItem.getQuantity());
-            item.setProductId(dtoItem.getProductId());
+            item.setProductId(product);
             item.setPrice(product.getPrice());
 
             orderItemsRepository.save(item);
@@ -72,29 +71,24 @@ public class OrderServiceImpl extends CrudServiceImpl<Order, Long> implements IO
     }
 
     @Override
-    public List<Order> findByUser_Id(Long userid) {
-        return List.of();
-    }
-
-    @Override
     public List<Order> findByUser(User user) {
-        return List.of();
+        return orderRepository.findByUser(user);
     }
 
     @Override
     public Page<Order> findByUser(User user, Pageable pageable) {
-        return null;
-    }
-
-    @Override
-    public List<Order> findOrdersByUser() {
-        return List.of();
+        return orderRepository.findByUser(user, pageable);
     }
 
     public List<OrderItems> findItemsByOrderId(Long orderId) {
         return orderItemsRepository.findByOrderId_Id(orderId);
     }
 
+    @Override
+    public List<Order> getOrdersByAuthenticatedUser() {
+        User user = authService.getAuthenticatedUser();
+        return orderRepository.findByUser(user);
+    }
 //    public ResponseOrderDTO findOrderById(Long orderId) {
 //        Order order = orderRepository.findById(orderId)
 //                .orElseThrow(() -> new RuntimeException("Order not found"));
@@ -192,8 +186,4 @@ public class OrderServiceImpl extends CrudServiceImpl<Order, Long> implements IO
 //        // Return the paginated response
 //        return ResponseEntity.ok(responseOrders);
 //    }
-
-    public List<Order> findByUserId(Long userId) {
-        return orderRepository.findByUserId(userId);
-    }
 }
