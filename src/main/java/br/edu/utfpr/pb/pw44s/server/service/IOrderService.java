@@ -8,4 +8,5 @@ import java.util.List;
 public interface IOrderService extends ICrudService<Order, Long> {
     OrderDTO SaveCompleteOrder(OrderDTO entity);
     List<Order> findByUserId(Long userId);
+    List<Order> findOrdersByUser();
 }

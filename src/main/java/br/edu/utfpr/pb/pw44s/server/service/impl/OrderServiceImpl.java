@@ -55,6 +55,12 @@ public class OrderServiceImpl extends CrudServiceImpl<Order, Long> implements IO
         return entity;
     }
 
+    public List<Order> findOrdersByUser() {
+        Long authenticatedUserId = authService.getAuthenticatedUser().getId();
+        return orderRepository.findOrdersByUser(authenticatedUserId);
+    }
+
+
     public List<Order> findByUserId(Long userId) {
         return orderRepository.findByUserId(userId);
     }

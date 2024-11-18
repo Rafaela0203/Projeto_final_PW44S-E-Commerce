@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -35,5 +36,5 @@ public class Order {
     private String payment;
 
     @NotNull
-    private String shipping;
+    private BigDecimal shipping;
 }

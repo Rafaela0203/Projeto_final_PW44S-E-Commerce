@@ -1,6 +1,7 @@
 package br.edu.utfpr.pb.pw44s.server.controller;
 
 import br.edu.utfpr.pb.pw44s.server.dto.OrderDTO;
+import br.edu.utfpr.pb.pw44s.server.dto.response.ResponseOrderDTO;
 import br.edu.utfpr.pb.pw44s.server.model.Order;
 import br.edu.utfpr.pb.pw44s.server.service.ICrudService;
 import br.edu.utfpr.pb.pw44s.server.service.IOrderService;
@@ -9,14 +10,17 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @RestController
 @RequestMapping("orders")
-public class OrderController extends CrudController<Order, OrderDTO, Long> {
+public class OrderController extends CrudController<Order, OrderDTO, ResponseOrderDTO, Long> {
     private static IOrderService orderService;
     private static ModelMapper modelMapper;
 
     public OrderController(IOrderService orderService, ModelMapper modelMapper) {
-        super(Order.class, OrderDTO.class);
+        super(Order.class, OrderDTO.class, ResponseOrderDTO.class);
         OrderController.orderService = orderService;
         OrderController.modelMapper = modelMapper;
     }
@@ -28,7 +32,13 @@ public class OrderController extends CrudController<Order, OrderDTO, Long> {
     protected ModelMapper getModelMapper() {return OrderController.modelMapper;}
 
     @Override
-    public ResponseEntity<OrderDTO> create(OrderDTO entity) {
-        return ResponseEntity.ok(orderService.SaveCompleteOrder(entity));
+    public ResponseEntity<List<ResponseOrderDTO>> findAll() {
+        List<Order> userOrders = orderService.findOrdersByUser();
+
+        List<ResponseOrderDTO> responseOrders = userOrders.stream()
+                .map(order -> modelMapper.map(order, ResponseOrderDTO.class))
+                .collect(Collectors.toList());
+
+        return ResponseEntity.ok(responseOrders);
     }
 }

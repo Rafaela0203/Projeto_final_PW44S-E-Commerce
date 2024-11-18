@@ -1,6 +1,7 @@
 package br.edu.utfpr.pb.pw44s.server.controller;
 
 import br.edu.utfpr.pb.pw44s.server.dto.OrderItemsDTO;
+import br.edu.utfpr.pb.pw44s.server.dto.response.ResponseOrderItemsDTO;
 import br.edu.utfpr.pb.pw44s.server.model.OrderItems;
 import br.edu.utfpr.pb.pw44s.server.service.ICrudService;
 import br.edu.utfpr.pb.pw44s.server.service.IOrderItemsService;
@@ -10,15 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("orderItems")
-public class OrderItemsController extends CrudController<OrderItems, OrderItemsDTO, Long> {
+public class OrderItemsController extends CrudController<OrderItems, OrderItemsDTO, ResponseOrderItemsDTO, Long> {
     private static IOrderItemsService orderItemsService;
     private static ModelMapper modelMapper;
 
     public OrderItemsController(IOrderItemsService orderItemsService, ModelMapper modelMapper) {
-        super(OrderItems.class, OrderItemsDTO.class);
-
-        OrderItemsController.orderItemsService = orderItemsService;
-        OrderItemsController.modelMapper = modelMapper;
+        super(OrderItems.class, OrderItemsDTO.class, ResponseOrderItemsDTO.class);
+        this.orderItemsService = orderItemsService;
+        this.modelMapper = modelMapper;
     }
 
     @Override

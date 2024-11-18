@@ -26,6 +26,7 @@ public class User implements UserDetails {
 
     @NotNull(message = "O atributo usuário não pode ser nulo.")
     @Size(min = 4, max = 50)
+    @Column(nullable = false, unique = true)
     private String email;
 
     @NotNull
@@ -38,7 +39,7 @@ public class User implements UserDetails {
     private String password;
 
     @NotNull
-    @Size(max = 11)                                                                 //DUVIDA
+    @Size(max = 11)
     private String cpf;
 
     private LocalDate birthDate;
