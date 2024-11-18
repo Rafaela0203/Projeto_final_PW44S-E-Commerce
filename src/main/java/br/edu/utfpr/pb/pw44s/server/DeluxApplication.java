@@ -9,5 +9,5 @@ public class DeluxApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DeluxApplication.class, args);
 	}
-
+//teste
 }
