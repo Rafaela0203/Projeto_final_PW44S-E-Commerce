@@ -9,7 +9,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -33,8 +32,8 @@ public class AddressController extends CrudController<Address, AddressDTO, Respo
     protected ModelMapper getModelMapper(){return AddressController.modelMapper;}
 
     @GetMapping("/by-user")
-    public ResponseEntity<List<Address>> getAddressesByUserId(@RequestParam Long userId) {
-        List<Address> addresses = addressService.findByUserId(userId);
+    public ResponseEntity<List<Address>> getAddressesByUserId() {
+        List<Address> addresses = addressService.findByAuthenticatedUser();
         if (addresses == null || addresses.isEmpty()) {
             return ResponseEntity.notFound().build();
         }

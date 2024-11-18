@@ -1,6 +1,7 @@
 package br.edu.utfpr.pb.pw44s.server.service.impl;
 
 import br.edu.utfpr.pb.pw44s.server.model.Address;
+import br.edu.utfpr.pb.pw44s.server.model.User;
 import br.edu.utfpr.pb.pw44s.server.repository.AddressRepository;
 import br.edu.utfpr.pb.pw44s.server.service.AuthService;
 import br.edu.utfpr.pb.pw44s.server.service.IAddressService;
@@ -26,8 +27,9 @@ public class AddressServiceImpl extends CrudServiceImpl<Address, Long>
     }
 
     @Override
-    public List<Address> findByUserId(Long userId) {
-        return addressRepository.findByUserId(userId);
+    public List<Address> findByAuthenticatedUser() {
+        User user = authService.getAuthenticatedUser();
+        return addressRepository.findByUser(user);
     }
 
 

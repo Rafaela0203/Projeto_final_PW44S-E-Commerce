@@ -10,8 +10,5 @@ import java.util.List;
 
 public interface IOrderService extends ICrudService<Order, Long> {
     OrderDTO SaveCompleteOrder(OrderDTO orderDTO);
-    List<Order> findByUser_Id(Long userid);
-    List<Order> findByUser(User user);
-    Page<Order> findByUser(User user, Pageable pageable);
-    List<Order> findOrdersByUser();
+    List<Order> getOrdersByAuthenticatedUser();
 }
