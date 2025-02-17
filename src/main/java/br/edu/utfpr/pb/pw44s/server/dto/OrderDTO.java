@@ -18,9 +18,7 @@ import java.util.List;
 public class OrderDTO {
         private Long id;
 
-        @ManyToOne
-        @JoinColumn(name = "user_id", referencedColumnName = "id")
-        private User user;
+        private Long userId;
 
         @ManyToOne
         @JoinColumn(name = "address_id", referencedColumnName = "id")

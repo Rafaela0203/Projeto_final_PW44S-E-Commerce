@@ -64,9 +64,11 @@ public class OrderServiceImpl extends CrudServiceImpl<Order, Long> implements IO
             orderItemsRepository.save(item);
         }
 
-        entity.setId(order.getId());
+        entity.setUserId(order.getUser().getId());
         return entity;
     }
+
+
 
     @Override
     public List<Order> getOrdersByAuthenticatedUser() {
