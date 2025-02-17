@@ -23,9 +23,6 @@ public class OrderDTO {
         private Long addressId;
 
         @NotNull
-        private Date orderDate;
-
-        @NotNull
         private String payment;
 
         @NotNull

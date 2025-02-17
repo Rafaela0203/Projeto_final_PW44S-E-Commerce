@@ -35,7 +35,7 @@ public class Product {
     private BigDecimal price;
 
     @NotNull
-    @Column(length = 512)
+    @Column(length = 1024)
     private String details;
 
     @NotNull

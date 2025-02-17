@@ -33,13 +33,7 @@ public class OrderController extends CrudController<Order, OrderDTO, ResponseOrd
 
     @Override
     public ResponseEntity<List<ResponseOrderDTO>> findAll() {
-        List<Order> userOrders = orderService.getOrdersByAuthenticatedUser();
-
-        List<ResponseOrderDTO> responseOrders = userOrders.stream()
-                .map(order -> modelMapper.map(order, ResponseOrderDTO.class))
-                .collect(Collectors.toList());
-
-        return ResponseEntity.ok(responseOrders);
+        return orderService.getOrdersByAuthenticatedUser();
     }
 
     @Override

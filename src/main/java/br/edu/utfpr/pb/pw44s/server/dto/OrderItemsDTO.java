@@ -18,7 +18,7 @@ public class OrderItemsDTO {
 
     @ManyToOne
     @JoinColumn(name = "order_id", referencedColumnName = "id")
-    private Order orderId;
+    private Order order;
 
     @ManyToOne
     @JoinColumn(name = "product_id", referencedColumnName = "id")

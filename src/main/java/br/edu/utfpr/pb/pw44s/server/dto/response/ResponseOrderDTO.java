@@ -3,6 +3,7 @@ package br.edu.utfpr.pb.pw44s.server.dto.response;
 import br.edu.utfpr.pb.pw44s.server.model.Address;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 @Data
@@ -14,7 +15,7 @@ public class ResponseOrderDTO {
 
         private String payment;
 
-        private String shipping;
+        private BigDecimal shipping;
 
         private List<ResponseOrderItemsDTO> itemsList;
 }
