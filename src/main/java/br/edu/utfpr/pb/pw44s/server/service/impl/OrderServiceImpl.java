@@ -2,10 +2,7 @@ package br.edu.utfpr.pb.pw44s.server.service.impl;
 
 import br.edu.utfpr.pb.pw44s.server.dto.OrderDTO;
 import br.edu.utfpr.pb.pw44s.server.dto.OrderItemsDTO;
-import br.edu.utfpr.pb.pw44s.server.model.Order;
-import br.edu.utfpr.pb.pw44s.server.model.OrderItems;
-import br.edu.utfpr.pb.pw44s.server.model.Product;
-import br.edu.utfpr.pb.pw44s.server.model.User;
+import br.edu.utfpr.pb.pw44s.server.model.*;
 import br.edu.utfpr.pb.pw44s.server.repository.OrderItemsRepository;
 import br.edu.utfpr.pb.pw44s.server.repository.OrderRepository;
 import br.edu.utfpr.pb.pw44s.server.service.AuthService;
@@ -25,14 +22,16 @@ public class OrderServiceImpl extends CrudServiceImpl<Order, Long> implements IO
     private final OrderItemsRepository orderItemsRepository;
     private final AuthService authService;
     private final ProductServiceImpl productService;
+    private final AddressServiceImpl addressService;
     private final ModelMapper modelMapper;
 
     public OrderServiceImpl(OrderRepository orderRepository, OrderItemsRepository orderItemsRepository,
                             OrderItemsRepository orderItemRepository, AuthService authService,
-                            ProductServiceImpl productService, ModelMapper modelMapper) {
+                            ProductServiceImpl productService, ModelMapper modelMapper, AddressServiceImpl addressService) {
         this.orderRepository = orderRepository;
         this.orderItemsRepository = orderItemRepository;
         this.productService = productService;
+        this.addressService = addressService;
         this.modelMapper = modelMapper;
         this.authService = authService;
     }
@@ -44,10 +43,11 @@ public class OrderServiceImpl extends CrudServiceImpl<Order, Long> implements IO
     }
 
     public OrderDTO SaveCompleteOrder(OrderDTO entity) {
+        Address address = addressService.findOne(entity.getAddressId());
         Order order = new Order();
         order.setOrderDate(LocalDateTime.now());
         order.setUser(authService.getAuthenticatedUser());
-        order.setAddress(entity.getAddress());
+        order.setAddress(address);
         order.setPayment(entity.getPayment());
         order.setShipping(entity.getShipping());
 

@@ -20,9 +20,7 @@ public class OrderDTO {
 
         private Long userId;
 
-        @ManyToOne
-        @JoinColumn(name = "address_id", referencedColumnName = "id")
-        private Address address;
+        private Long addressId;
 
         @NotNull
         private Date orderDate;
