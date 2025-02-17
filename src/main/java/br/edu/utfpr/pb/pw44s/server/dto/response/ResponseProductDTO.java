@@ -7,6 +7,8 @@ import java.math.BigDecimal;
 
 @Data
 public class ResponseProductDTO {
+    private Long id;
+
     private String name;
 
     private String brand;

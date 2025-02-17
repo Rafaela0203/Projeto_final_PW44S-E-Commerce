@@ -9,6 +9,8 @@ import java.util.List;
 @Data
 
 public class ResponseOrderDTO {
+        private Long id;
+
         private Address address;
 
         private LocalDateTime orderDate;

@@ -95,7 +95,7 @@ public class OrderServiceImpl extends CrudServiceImpl<Order, Long> implements IO
                             .map(item -> {
 
                                 ResponseOrderItemsDTO itemDTO = new ResponseOrderItemsDTO();
-//                                itemDTO.setProductId(item.getProduct().getId());
+                                itemDTO.setId(item.getId());
                                 itemDTO.setProductName(productService.findOne(item.getProductId().getId()).getName());
                                 itemDTO.setPrice(item.getPrice());
                                 itemDTO.setQuantity(item.getQuantity());

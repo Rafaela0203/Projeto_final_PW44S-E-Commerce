@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class ResponseAddressDTO {
+    private Long id;
 
     private String zip;
 
