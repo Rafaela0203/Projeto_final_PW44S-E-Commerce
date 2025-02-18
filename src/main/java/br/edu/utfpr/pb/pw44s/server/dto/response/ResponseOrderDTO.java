@@ -19,5 +19,7 @@ public class ResponseOrderDTO {
 
         private BigDecimal shipping;
 
+        private BigDecimal total;
+
         private List<ResponseOrderItemsDTO> itemsList;
 }

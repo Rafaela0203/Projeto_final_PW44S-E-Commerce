@@ -14,6 +14,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -54,16 +55,18 @@ public class OrderServiceImpl extends CrudServiceImpl<Order, Long> implements IO
         order.setAddress(address);
         order.setPayment(entity.getPayment());
         order.setShipping(entity.getShipping());
+        order.setTotal(entity.getTotal());
 
         orderRepository.save(order);
 
         for(OrderItemsDTO dtoItem : entity.getItemsList()) {
             OrderItems item = new OrderItems();
-            Product product = productService.findOne(dtoItem.getProductId().getId());
+            Product product = productService.findOne(dtoItem.getProductId());
             item.setOrder(order);
             item.setQuantity(dtoItem.getQuantity());
             item.setProductId(product);
             item.setPrice(product.getPrice());
+            item.setProductName(product.getName());
 
             orderItemsRepository.save(item);
         }
@@ -96,9 +99,10 @@ public class OrderServiceImpl extends CrudServiceImpl<Order, Long> implements IO
 
                                 ResponseOrderItemsDTO itemDTO = new ResponseOrderItemsDTO();
                                 itemDTO.setId(item.getId());
-                                itemDTO.setProductName(productService.findOne(item.getProductId().getId()).getName());
+                                itemDTO.setProductId(item.getProductId().getId());
                                 itemDTO.setPrice(item.getPrice());
                                 itemDTO.setQuantity(item.getQuantity());
+                                itemDTO.setProductName(item.getProductName());
                                 return itemDTO;
                             })
                             .collect(Collectors.toList());

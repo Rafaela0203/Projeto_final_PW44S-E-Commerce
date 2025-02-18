@@ -16,13 +16,11 @@ import java.math.BigDecimal;
 public class OrderItemsDTO {
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "order_id", referencedColumnName = "id")
-    private Order order;
+    private Long orderId;
 
-    @ManyToOne
-    @JoinColumn(name = "product_id", referencedColumnName = "id")
-    private Product productId;
+    private Long productId;
+
+    private String productName;
 
     @NotNull
     private BigDecimal price;

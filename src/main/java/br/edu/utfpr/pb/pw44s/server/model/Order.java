@@ -37,4 +37,7 @@ public class Order {
 
     @NotNull
     private BigDecimal shipping;
+
+    @NotNull
+    private BigDecimal total;
 }

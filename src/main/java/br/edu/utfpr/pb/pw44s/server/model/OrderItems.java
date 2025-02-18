@@ -28,6 +28,8 @@ public class OrderItems {
     @JoinColumn(name = "product_id", referencedColumnName = "id")
     private Product productId;
 
+    private String productName;
+
     @NotNull
     private BigDecimal price;
 

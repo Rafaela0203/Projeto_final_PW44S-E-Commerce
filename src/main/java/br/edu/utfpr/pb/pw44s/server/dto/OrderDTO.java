@@ -28,5 +28,7 @@ public class OrderDTO {
         @NotNull
         private BigDecimal shipping;
 
+        private BigDecimal total;
+
         List<OrderItemsDTO> ItemsList;
 }
